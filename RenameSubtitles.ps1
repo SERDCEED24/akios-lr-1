@@ -32,3 +32,4 @@ try { # Предусматриваем сообщение об ошибке во
 catch {
     throw "Error! Some file/files can't be renamed." # Выкидываем исключении о том что некий файл/файлы не смог/смогли быть переименован/переименованы.
 }
+Write-Output "Subtitles have been successfully renamed!"
