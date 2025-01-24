@@ -5,8 +5,8 @@ param (
 
 # Предусматриваем сообщение об ошибке, для случая если указанный путь не существует или не может быть обработан по какой-то причине.
 try {
-    $videoFiles = Get-ChildItem -Path $source_dir -Filter "*.mkv" # Получаем все видеофайлы из требуемой директории.
-    $subtitleFiles = Get-ChildItem -Path $source_dir -Filter "*.ass" # Получаем все файлы субтитров из требуемой директории.
+    $videoFiles = Get-ChildItem -Path $source_dir -Filter "*.mkv" -ErrorAction Stop # Получаем все видеофайлы из требуемой директории. ErrorAction указываем чтобы можно было поймать ошибку try-catch'ем.
+    $subtitleFiles = Get-ChildItem -Path $source_dir -Filter "*.ass" -ErrorAction Stop # Получаем все файлы субтитров из требуемой директории. ErrorAction указываем чтобы можно было поймать ошибку try-catch'ем.
 }
 catch {
     throw "Check path to your directory! The path entered probably doesn't exist." # Выкидываем исключение с сообщением о том, что стоит проверить правильность указанного пути.
